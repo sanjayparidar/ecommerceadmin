@@ -1,0 +1,22 @@
+.c-no{height:150px;}
+.grey-bg{background:#ebebeb;}
+.counter-Txt{text-align:center; font-size:15px; font-weight:bold; text-transform:uppercase; margin-top:20px;}
+.counter-Txt span{display:block; font-size:26px}
+@media(min-width:320px) and (max-width:767px){ 
+.c-no{height:100%;}
+.counter-Txt{margin-top:35px;}
+.margin-bot-35{margin-bottom:35px;}
+}
+
+.Count {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+}
+.counter-card{
+    width:80% !important;
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+     background: white;
+     margin:30px 0;
+     padding: 60px 0px;
+}

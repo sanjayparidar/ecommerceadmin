@@ -1,0 +1,52 @@
+    
+<div class="error-pagewrap" style="background: url('assets/img/images.jpg'); background-repeat : no-repeat;background-size: cover">
+
+    
+
+    <div class="error-page-int">
+      <div class="content-error">
+          <h1 class="font1">Welcome to Stowaway Admin </h1>
+  
+        <div class="hpanel" >
+                    <div class="panel-body" >
+                       <!-- <div class="text-center m-b-md custom-login">
+                            <h1><span style="color: gray">Welcome to</span> <span style="color:	#DD4F39">XYZ</span> </h1>
+                          </div>-->
+                          
+                          <div style="text-align: center;">
+                          <h2 class="font">Login</h2>
+                          <hr style="border-color:rgb(14, 69, 185)">
+                        </div>
+                        <form id="loginForm" class="newForm" #newForm="ngForm"  (ngSubmit)= "onSubmit()">
+                            <div class="form-group">
+                                <label class="control-label font center" for="email">Username</label>
+                                <input type="email" placeholder="example@gmail.com" title="Please enter you username" required  name="email" id="email" class="form-control" [(ngModel)]="userModel.email">
+                                <!-- <span class="help-block small">Your unique username to app</span> -->
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label font" for="password">Password</label>
+                                <input type="password" title="Please enter your password" placeholder="******" required  name="password" id="password" class="form-control" [(ngModel)]="userModel.password">
+                                <!-- <span class="help-block small">Yur strong password</span> -->
+                            </div>
+                           <!-- <div class="checkbox login-checkbox">
+                                <label>
+                          <input type="checkbox" class="regular-checkbox"> Remember me </label>
+                                <p class="help-block small">(if this is a private computer)</p> 
+                            </div>-->
+                            <br>
+                            <div style="text-align: center">
+                            <button type="submit" style="background-color:rgb(10, 58, 160);" class="btn btn-success btn-block loginbtn">Login</button>
+                          </div>
+                            <br><hr>
+                            <div style="text-align: center;">
+                              <button  class="btn btn-link">Forgot Password?</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+      </div>
+      <div class="text-center login-footer">
+        <p>Copyright © 2018. All rights reserved.  by Encodesoft LLC<a href=""></a></p>
+      </div>
+    </div>   
+    </div>
