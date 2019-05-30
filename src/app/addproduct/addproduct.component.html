@@ -99,11 +99,16 @@
                         <input type="text" required #description="ngModel" class="form-control" name="description" placeholder="Description"  [(ngModel)]="userModel.description">
                         
                     </div>
+                    <br>
                     <div class="submit-btn-area">
                         <button type="submit"  class="btn btn-primary center-block" [disabled]="newForm.form.invalid">Submit</button>
+                        
                     </div>
                 </div>
             </form>
+           </div>
+           <div style="margin: 200px 50px 0px">
+            <h5>{{msg}}</h5> 
            </div>
   
   
@@ -127,9 +132,7 @@
   
   
   
-  
-  
-  
+
   
   
   

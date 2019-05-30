@@ -10,9 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 public user:any;
+public msg:any;
   constructor(private myservice:MyService,private router:Router) { }
 
   ngOnInit() {
+    this.msg=""
   }
 
   userModel = {email:"", password: ""}
@@ -23,7 +25,7 @@ public user:any;
     if(this.user.status==200){
       this.router.navigate(['/index']);
     }else{
-    
+       this.msg="User name and password is incorrect"
     }
   })
   

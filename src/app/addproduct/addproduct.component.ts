@@ -11,6 +11,7 @@ export class AddproductComponent implements OnInit {
   categorys:any;
   units:any;
   stocks:any;
+  public msg:any;
   @ViewChild('fileInput') fileInput: ElementRef;
   constructor(private myservice:MyService) { }
   
@@ -41,7 +42,8 @@ export class AddproductComponent implements OnInit {
 
     this.myservice.addproduct(fb)
     .subscribe(res=>{
-      console.log(res)
+         this.msg="Product Succfully add"
+         this.userModel = {product_name:'',company_name:"",quantity:"",unit:"",stock_status:"",price:'', category:'',description:""}
     })
   
   }
