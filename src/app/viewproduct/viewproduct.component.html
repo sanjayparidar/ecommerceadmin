@@ -26,9 +26,9 @@
                    </button>
                  </div>
                  <div class="modal-body">
-                   <h1>Are you sure ? </h1>
+                   <p>Are you sure ? </p>
                    
-                   <p>Do you really want to delete these {{obj.product_name}} product? This process cannot be undone.</p>
+                   <p>Do you really want to delete these <b>{{obj.product_name}}</b> product? This process cannot be undone.</p>
                  </div>
                  <div class="modal-footer">
                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -79,7 +79,7 @@
                      <img src="https://sheltered-woodland-33544.herokuapp.com/product_image/{{u.image}}" height="100px" width="100px">
                   </td> -->
                   <td>
-                    <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="onEditUser(u._id)" >Edit</button>
+                    <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="editproduct(u._id)" >Edit</button>
                   </td>
                   <td>
                     <!-- <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="myFunction(u._id)" >Delete</button> -->

@@ -1,0 +1,108 @@
+
+
+  <div id="wrapper">
+
+    
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+  
+   <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+      
+        <app-topbar></app-topbar>
+       
+         <div class="container" class="col-md-4 col-md-offset-4">
+        
+           <h3>Add Product</h3>
+           <hr>
+ 
+           <form class="newForm" #newForm="ngForm" (ngSubmit)= "onSubmit()"  >
+              <!-- <div class="login-form-head">
+                  <h4>Add Your Product</h4>
+                  <p>Hello there, Add Product in and start managing your Admin Template</p>
+              </div> -->
+  
+              <div class="login-form-body">
+                  <div class="form-gp">
+                      <label for="coupon_name"><b>Promo Name</b></label>
+                      <input type="text" required #coupon_name="ngModel" class="form-control" name="coupon_name" placeholder="Promo Name"  [(ngModel)]="userModel.coupon_name">
+                      
+                  </div>
+                  <div class="form-gp">
+                      <label for="coupon_code"><b>Promo Code</b></label>
+                      <input type="text" required #coupon_code="ngModel" class="form-control" name="coupon_code" placeholder="Promo Code"  [(ngModel)]="userModel.coupon_code">
+                      
+                  </div>
+
+  
+                  
+  
+                  <div class="form-gp">
+                      <label for="discount_type"><b>Discount Type</b></label>
+                      <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
+                      <select class="form-control" required #discount_type="ngModel" name="discount_type" [(ngModel)]="userModel.discount_type">
+                       <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
+                       <!-- <option value="Add Category" selected disabled>Add Category</option> -->
+                       <option *ngFor="let disc_type of disc_type" [value]="disc_type" [selected]="disc_type === 1">{{disc_type}}</option>
+                   </select>
+
+                  </div>
+                  <div class="form-gp">
+                      <label for="discount_amount"><b>Discount Amount</b></label>
+                      <input type="number" required #discount_amount="ngModel" class="form-control" name="discount_amount"  placeholder="Discount Amount"   [(ngModel)]="userModel.discount_amount">                      
+                  </div>
+                  <div class="form-gp">
+                     <label for='start_date'>Start Date</label>
+                     <input type="date" required #start_date="ngModel" class="form-control" name="start_date" placeholder="Start Date" [(ngModel)]="userModel.start_date" >
+                  </div>
+                  <div class="form-gp">
+                    <label for='end_date'>End Date</label>
+                    <input type="date" required #end_date="ngModel" class="form-control" name="end_date" [(ngModel)]="userModel.end_date" >
+                 </div>
+
+                
+                  <br>
+                  <div class="submit-btn-area">
+                      <button type="submit"  class="btn btn-primary center-block" [disabled]="newForm.form.invalid">Submit</button>
+                      
+                  </div>
+              </div>
+          </form>
+         </div>
+         <div>
+          <h5>{{msg}}</h5> 
+         </div>
+
+
+
+
+</div>
+</div>
+   
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

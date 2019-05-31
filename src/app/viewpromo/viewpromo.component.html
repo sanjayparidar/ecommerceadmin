@@ -28,7 +28,7 @@
                  <div class="modal-body">
                    <p>Are you sure ? </p>
                    
-                   <p>Do you really want to delete these <b>{{obj.category_name}}</b> Category? This process cannot be undone.</p>
+                   <p>Do you really want to delete these <b>{{obj.coupon_name}}</b> Category? This process cannot be undone.</p>
                  </div>
                  <div class="modal-footer">
                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -53,15 +53,25 @@
               <table class="table table-striped">
                 <tr>
                   <th>No</th>
-                  <th> Category Name</th>
+                  <th> Promo Name</th>
+                  <th>Promo code</th>
+                  <th>Discount Type</th>
+                  <th>Discount Amount </th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
                   <th>Action</th>
-              
                 </tr>
            
          
                 <tr *ngFor="let u of table, let i = index;">
                   <td>{{i+1}}</td>
-                  <td>{{u.category_name}}</td>
+                  <td>{{u.coupon_name}}</td>
+                  <td>{{u.coupon_code}}</td>
+                  <td>{{u.discount_type}}</td>
+                  <td>{{u.discount_amount}}</td>
+                  <td>{{u.start_date}}</td>
+                  <td>{{u.end_date}}</td>
+                  
                   <td>
                     <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="editproduct(u._id)" >Edit</button>
                   &nbsp;
