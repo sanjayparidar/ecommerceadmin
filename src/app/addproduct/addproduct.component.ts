@@ -47,8 +47,5 @@ export class AddproductComponent implements OnInit {
     })
   
   }
-  deleteconfirmation(data){
-    
-  }
-
+   
 }

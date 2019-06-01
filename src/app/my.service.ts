@@ -68,4 +68,9 @@ export class MyService {
   updatepromo(data){
     return this.http.post('https://polar-basin-67929.herokuapp.com/updateCoupon',data)
   }
+  Deleteproduct(id){
+    const fb = new FormData();
+    fb.append("id",id)
+   return this.http.post('https://polar-basin-67929.herokuapp.com/deleteProduct',fb)
+  }
 }

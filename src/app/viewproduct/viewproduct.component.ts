@@ -34,14 +34,14 @@ delete(id){
     console.log(index)
     this.table.splice(index,1)
       
-    //    this.myservices.Deleteproduct(id)
-    //   .subscribe(res =>  {
-    //    },
-    //    error =>{
-    //      console.log(error)
+       this.myservice.Deleteproduct(id)
+      .subscribe(res =>  {
+       },
+       error =>{
+         console.log(error)
         
-    //    }
-    //  );
+       }
+     );
   
 }
 
