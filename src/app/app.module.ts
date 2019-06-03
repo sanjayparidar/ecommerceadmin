@@ -20,18 +20,20 @@ import { UpdatecategoryComponent } from './updatecategory/updatecategory.compone
 import { AddpromoComponent } from './addpromo/addpromo.component';
 import { ViewpromoComponent } from './viewpromo/viewpromo.component';
 import { UpdatepromoComponent } from './updatepromo/updatepromo.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 const appRoute:Routes=[
   { path: '', component: LoginComponent},
-  { path: 'index', component:IndexComponent },
-  { path: 'addcategory', component:AddcategoryComponent},
-  { path: 'addproduct', component:AddproductComponent},
-  { path: 'viewproduct', component:ViewproductComponent},
-  { path: 'viewcategory', component:ViewcategoryComponent},
-  {path: 'updateproduct/:id',component:UpdateproductComponent},
-  {path:'updatecategory/:id',component:UpdatecategoryComponent},
-  {path:'addpromo',component:AddpromoComponent},
-  {path:'viewpromo',component:ViewpromoComponent},
-  {path:'updatepromo/:id',component:UpdatepromoComponent}
+  { path: 'index', component:IndexComponent,canActivate: [AuthGuard]},
+  { path: 'addcategory', component:AddcategoryComponent, canActivate:[AuthGuard]},
+  { path: 'addproduct', component:AddproductComponent,canActivate:[AuthGuard]},
+  { path: 'viewproduct', component:ViewproductComponent,canActivate:[AuthGuard]},
+  { path: 'viewcategory', component:ViewcategoryComponent ,canActivate:[AuthGuard]},
+  {path: 'updateproduct/:id',component:UpdateproductComponent, canActivate:[AuthGuard]},
+  {path:'updatecategory/:id',component:UpdatecategoryComponent,canActivate:[AuthGuard]},
+  {path:'addpromo',component:AddpromoComponent , canActivate:[AuthGuard]},
+  {path:'viewpromo',component:ViewpromoComponent,canActivate:[AuthGuard]},
+  {path:'updatepromo/:id',component:UpdatepromoComponent, canActivate:[AuthGuard]}
 
 ]
 @NgModule({
@@ -59,7 +61,7 @@ const appRoute:Routes=[
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
