@@ -22,6 +22,7 @@ public msg:any;
   onSubmit(){
   this.myservice.login(this.userModel)
   .subscribe(res=>{
+    console.log(res)
     this.user=res;
     if(this.user.status==200){
       this.auth.sendToken("userLoggedin")

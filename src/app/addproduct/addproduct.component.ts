@@ -23,12 +23,12 @@ export class AddproductComponent implements OnInit {
   userModel = {product_name:'',company_name:"",quantity:"",unit:"",stock_status:"",price:'', category:'',description:""}
   onFileSelected(event){
     this.SelectedFile = <File>event.target.files[0];
-    console.log(this.SelectedFile)
+  
   }
 
 
   onSubmit(){
-    console.log(this.userModel)
+    
     const fb = new FormData();
     fb.append('image', this.SelectedFile)
     fb.append('product_name', this.userModel.product_name)
@@ -39,7 +39,7 @@ export class AddproductComponent implements OnInit {
     fb.append('price', this.userModel.price)
     fb.append('category', this.userModel.category)
     fb.append('description', this.userModel.description)
-
+     console.log(this.SelectedFile)
     this.myservice.addproduct(fb)
     .subscribe(res=>{
          this.msg="Product Succfully add"
