@@ -68,10 +68,10 @@
                   <th>Brand Name</th>
                   <th>Category</th>
                   <th>Price</th>
-                  <th>Quantity/Unit</th>
+                  <th>Quantity</th>
                   <th>stock status</th> 
-                  <th>Edit</th>
-                  <th>Delete</th>
+                  <th>Image</th>
+                  <th>Action</th>
                 </tr>
            
          
@@ -80,8 +80,8 @@
                   <td>{{u.product_name}}</td>
                   <td>{{u.company_name}}</td>
                   <td>{{u.category}}</td>
-                  <td>{{u.price}}</td>
-                  <td>{{u.quantity}} {{unit}}</td>
+                  <td>{{u.price | currency:'INR':true}}</td>
+                  <td>{{u.quantity}} {{u.unit}}</td>
                   <td>{{u.stock_status}}</td>
                   
                   <td>
@@ -93,8 +93,7 @@
                   </td> -->
                   <td>
                     <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="editproduct(u._id)" >Edit</button>
-                  </td>
-                  <td>
+                    &nbsp;&nbsp;
                     <!-- <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="myFunction(u._id)" >Delete</button> -->
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="deleteconfirmation(u)">
                      Delete

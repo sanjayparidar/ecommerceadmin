@@ -18,6 +18,6 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem("LoggedInUser");
-    this.myRoute.navigate(["Login"]);
+    this.myRoute.navigate(["login"]);
   }
 }

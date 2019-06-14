@@ -73,4 +73,34 @@ export class MyService {
     fb.append("id",id)
    return this.http.post('https://polar-basin-67929.herokuapp.com/deleteProduct',fb)
   }
+  // contactus(){
+  //   return this.http.post('https://polar-basin-67929.herokuapp.com/contactus',{})
+  // }
+
+  aboutus(){
+    return this.http.get('https://polar-basin-67929.herokuapp.com/aboutus')
+  }
+
+  addaboutus(data){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus',data)
+  }
+
+  deleteaboutus(id){
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus/delete',fb)
+  }
+  getobjaboutus(id){
+    console.log(id)
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus/edit',fb)
+  }
+
+  updateaboutus(data){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus/update',data)
+  }
+  // aboutusupdate(data){
+  //   return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus',data)
+  // }
 }

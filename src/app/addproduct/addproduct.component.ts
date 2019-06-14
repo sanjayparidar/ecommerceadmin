@@ -12,12 +12,20 @@ export class AddproductComponent implements OnInit {
   units:any;
   stocks:any;
   public msg:any;
+  categorydata:any;
   @ViewChild('fileInput') fileInput: ElementRef;
   constructor(private myservice:MyService) { }
   
   ngOnInit() {
-    this.categorys=['Add Category',1,2,5,10,15,20];
-    this.units=["Add Unit","kg","litter"];
+    this.myservice.viewcategoroy()
+    .subscribe(res=>{
+      console.log(res)
+      this.categorydata=res
+      this.categorys=this.categorydata.data
+
+    })
+    
+    this.units=["Add Unit","kg"];
     this.stocks=["Add stock status","In Stock","Out of Stock"]
   }
   userModel = {product_name:'',company_name:"",quantity:"",unit:"",stock_status:"",price:'', category:'',description:""}

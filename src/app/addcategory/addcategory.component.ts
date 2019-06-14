@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyService } from '../my.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addcategory',
@@ -8,7 +9,7 @@ import { MyService } from '../my.service';
 })
 export class AddcategoryComponent implements OnInit {
   
-  constructor(private myservice:MyService) { }
+  constructor(private myservice:MyService,private router:Router) { }
 
   ngOnInit() {
     
@@ -18,7 +19,8 @@ export class AddcategoryComponent implements OnInit {
   onSubmit(){
      this.myservice.addcategory(this.userModel)
      .subscribe(res=>{
-       console.log(res)
+      this.router.navigate(['/viewcategory']);
+       
      })
   }
 
