@@ -22,13 +22,14 @@ import { ViewpromoComponent } from './viewpromo/viewpromo.component';
 import { UpdatepromoComponent } from './updatepromo/updatepromo.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
-import { UpdatecontactusComponent } from './updatecontactus/updatecontactus.component';
+
 
 
 import { ServiceComponent } from './service/service.component';
 import { ContactusComponent } from './service/contactus/contactus.component';
 import { CustomerserviceComponent } from './service/customerservice/customerservice.component';
 import { AboutusComponent, AddaboutusComponent, UpdateaboutusComponent } from './service/aboutus/aboutus.component';
+import { OrderComponent } from './order/order.component';
 const appRoute:Routes=[
   { path: '', component: LoginComponent},
   { path: 'index', component:IndexComponent,canActivate: [AuthGuard]},
@@ -44,7 +45,9 @@ const appRoute:Routes=[
   
   {path:'aboutus',component:AboutusComponent,canActivate:[AuthGuard]},
   {path:'addaboutus',component:AddaboutusComponent,canActivate:[AuthGuard]},
-  {path:'updateaboutus/:id',component:UpdateaboutusComponent,canActivate:[AuthGuard]}
+  {path:'updateaboutus/:id',component:UpdateaboutusComponent,canActivate:[AuthGuard]},
+  {path:'order',component:OrderComponent,canActivate:[AuthGuard]},
+  {path:'customerservice',component:CustomerserviceComponent,canActivate:[AuthGuard]}
 
 ]
 @NgModule({
@@ -68,7 +71,8 @@ const appRoute:Routes=[
     ContactusComponent,
     CustomerserviceComponent,
     AddaboutusComponent,
-    UpdateaboutusComponent
+    UpdateaboutusComponent,
+    OrderComponent
 
   ],
   imports: [

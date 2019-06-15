@@ -58,7 +58,7 @@ editproduct(id){
 })
 export class AddaboutusComponent implements OnInit {
 
-  constructor(private myservice:MyService) { }
+  constructor(private myservice:MyService,private router:Router) { }
 
   ngOnInit() {
    }
@@ -67,6 +67,7 @@ export class AddaboutusComponent implements OnInit {
      this.myservice.addaboutus(this.userModel)
      .subscribe(res=>{
        console.log(res)
+       this.router.navigate(['/aboutus'])
      })
    }
 }

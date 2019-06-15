@@ -100,6 +100,16 @@ export class MyService {
   updateaboutus(data){
     return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus/update',data)
   }
+
+  order(){
+    return this.http.get('https://polar-basin-67929.herokuapp.com/orderhistory')
+  }
+  order_update_status(status,id){
+    const data=new FormData();
+    data.append("id",id)
+    data.append('orderstatus',status)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/orderhistory/updatestatus',data)
+  }
   // aboutusupdate(data){
   //   return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus',data)
   // }
