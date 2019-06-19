@@ -30,6 +30,9 @@ import { ContactusComponent } from './service/contactus/contactus.component';
 import { CustomerserviceComponent } from './service/customerservice/customerservice.component';
 import { AboutusComponent, AddaboutusComponent, UpdateaboutusComponent } from './service/aboutus/aboutus.component';
 import { OrderComponent } from './order/order.component';
+import { SubcategoryComponent, AddsubcategoryComponent, UpdatesubcategoryComponent } from './subcategory/subcategory.component';
+import { TodaydealComponent, AddtodaydealComponent, UpdatetodaydealComponent } from './todaydeal/todaydeal.component';
+import { combineLatest } from 'rxjs';
 const appRoute:Routes=[
   { path: '', component: LoginComponent},
   { path: 'index', component:IndexComponent,canActivate: [AuthGuard]},
@@ -47,8 +50,13 @@ const appRoute:Routes=[
   {path:'addaboutus',component:AddaboutusComponent,canActivate:[AuthGuard]},
   {path:'updateaboutus/:id',component:UpdateaboutusComponent,canActivate:[AuthGuard]},
   {path:'order',component:OrderComponent,canActivate:[AuthGuard]},
-  {path:'customerservice',component:CustomerserviceComponent,canActivate:[AuthGuard]}
-
+  {path:'customerservice',component:CustomerserviceComponent,canActivate:[AuthGuard]},
+  {path:'subcategory',component:SubcategoryComponent,canActivate:[AuthGuard]},
+  {path:'addsubcategory',component:AddsubcategoryComponent,canActivate:[AuthGuard]},
+  {path:'updatesubcategory/:id',component:UpdatesubcategoryComponent,canActivate:[AuthGuard]},
+  {path:'todaydeal',component:TodaydealComponent,canActivate:[AuthGuard]},
+  {path:'todayaddproduct',component:AddtodaydealComponent,canActivate:[AuthGuard]},
+  {path:'updatetodaydeal/:id',component:UpdatetodaydealComponent,canActivate:[AuthGuard]}
 ]
 @NgModule({
   declarations: [
@@ -72,8 +80,13 @@ const appRoute:Routes=[
     CustomerserviceComponent,
     AddaboutusComponent,
     UpdateaboutusComponent,
-    OrderComponent
-
+    OrderComponent,
+    SubcategoryComponent,
+    AddsubcategoryComponent,
+    UpdatesubcategoryComponent,
+    TodaydealComponent,
+    AddtodaydealComponent,
+    UpdatetodaydealComponent
   ],
   imports: [
     BrowserModule,

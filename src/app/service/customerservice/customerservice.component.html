@@ -1,3 +1,160 @@
-<p>
-  customerservice works!
-</p>
+
+
+
+  <div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+ 
+     
+  
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+  
+          <app-topbar></app-topbar>
+       <!-- modal -->
+          <div >
+           
+           
+          
+           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalLabel">Send Respone</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body">
+                
+
+                   <form class="newForm" #newForm="ngForm">
+                 
+        
+                    <div class="login-form-body">
+                        <div class="form-gp">
+                            <label for="name"><b>Title</b></label>
+                            <input type="text" required #title="ngModel" class="form-control" name="title" placeholder="title"  [(ngModel)]="userModel.title">
+                            
+                        </div>
+                       
+      
+                          <div class="form-gp">
+                            <label for="description"><b>Services</b></label>
+                            <input type="text" required #Services="ngModel" class="form-control" name="Services" placeholder="Description"  [(ngModel)]="userModel.note">
+                            
+                        </div>
+                        <br>
+                        <div class="submit-btn-area modal-footer">
+                            <button type="submit" (click)='onSubmit()' data-dismiss="modal" class="btn btn-primary" [disabled]="newForm.form.invalid" >Submit</button>
+                            
+                            <!-- (click)="onCloseModal($event)" -->
+                        
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     
+                           
+                        </div>
+                    </div>
+                </form>
+                   
+                 </div>
+                 
+               </div>
+             </div>
+           </div>
+          </div>
+          <!-- modal -->
+          <div>
+          <div class='col-md-4 col-md-offset-2'>
+          <h3>Castomer Service</h3>
+        </div>
+          
+      </div>
+          
+          
+          <div class="container col-md-10 col-md-offset-2">
+           
+            <hr>
+          
+          
+ 
+          <div>
+             
+  
+              <table class="table table-striped">
+                <tr>
+                  <th>No</th>
+                  <th>Email</th>
+                 <th>title</th>
+                 <th>note</th>
+                 <th>Send Ans</th>
+                </tr>
+           
+         
+                <tr *ngFor="let table of table, let i = index;">
+                  <td>{{i+1}}</td>
+                  <td>sanjaypatidar402@gmial.com</td>
+                  <td class="textsize">{{table.title}}</td>
+                  <td class="text">{{table.note}}</td>
+                
+                  
+                  
+                  <!-- <td ><img *ngIf src="https://sheltered-woodland-33544.herokuapp.com/product_image/{{u.imgage}}" height="100px" width="100px"></td> -->
+                  <!-- <td>
+                     <img src="https://sheltered-woodland-33544.herokuapp.com/product_image/{{u.image}}" height="100px" width="100px">
+                  </td> -->
+                  <!-- <td>
+                    <button type="button" style="color: whitesmoke;" class="btn btn-info" (click)="query(table.email)" >Send Ans.</button>
+                    
+                   </td> -->
+                   <td>
+                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="getemail(table.userid)">
+                    Send Ans.
+                  </button>
+                </td>
+                  
+                </tr>
+              
+              
+              </table>
+ 
+            </div>
+            </div>
+      </div>
+    </div>
+    </div>
+    
+  
+   <!-- // {{u.https://sheltered-woodland-33544.herokuapp.com/product_image/}}  -->
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -110,7 +110,39 @@ export class MyService {
     data.append('orderstatus',status)
     return this.http.post('https://polar-basin-67929.herokuapp.com/orderhistory/updatestatus',data)
   }
-  // aboutusupdate(data){
-  //   return this.http.post('https://polar-basin-67929.herokuapp.com/aboutus',data)
-  // }
+  customerservice(){
+    return this.http.get('https://polar-basin-67929.herokuapp.com/customerservice')
+  }
+  customerservice_response(data){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/customerservice/send_query_result',data)
+  }
+
+  viewsubcategory(){
+    return this.http.get('https://polar-basin-67929.herokuapp.com/subcategory')
+  }
+
+  add_subcategory(data){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/subcategory',data)
+  }
+  getobjsubcategory(id){
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/subcategory/getsubcategoryById',fb)
+  }
+  todaydeal_viewproduct(page){
+    const fb = new FormData();
+    fb.append("page",page)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/todaydeal/find',fb)
+  }
+
+  todaydeal_addproduct(data){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/todaydeal',data)
+  }
+  get_edit_todaydeal_obj(id){
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/todaydeal/gettodaydealById',fb)
+
+  }
+
 }
