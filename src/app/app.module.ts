@@ -33,6 +33,7 @@ import { OrderComponent } from './order/order.component';
 import { SubcategoryComponent, AddsubcategoryComponent, UpdatesubcategoryComponent } from './subcategory/subcategory.component';
 import { TodaydealComponent, AddtodaydealComponent, UpdatetodaydealComponent } from './todaydeal/todaydeal.component';
 import { combineLatest } from 'rxjs';
+import { FirmworksComponent, AddfirmworksComponent } from './firmworks/firmworks.component';
 const appRoute:Routes=[
   { path: '', component: LoginComponent},
   { path: 'index', component:IndexComponent,canActivate: [AuthGuard]},
@@ -56,7 +57,9 @@ const appRoute:Routes=[
   {path:'updatesubcategory/:id',component:UpdatesubcategoryComponent,canActivate:[AuthGuard]},
   {path:'todaydeal',component:TodaydealComponent,canActivate:[AuthGuard]},
   {path:'todayaddproduct',component:AddtodaydealComponent,canActivate:[AuthGuard]},
-  {path:'updatetodaydeal/:id',component:UpdatetodaydealComponent,canActivate:[AuthGuard]}
+  {path:'updatetodaydeal/:id',component:UpdatetodaydealComponent,canActivate:[AuthGuard]},
+  {path:'firmworks',component:FirmworksComponent,canActivate:[AuthGuard]},
+  {path:'addfirmsworks',component:AddfirmworksComponent,canActivate:[AuthGuard]}
 ]
 @NgModule({
   declarations: [
@@ -86,7 +89,9 @@ const appRoute:Routes=[
     UpdatesubcategoryComponent,
     TodaydealComponent,
     AddtodaydealComponent,
-    UpdatetodaydealComponent
+    UpdatetodaydealComponent,
+    FirmworksComponent,
+    AddfirmworksComponent
   ],
   imports: [
     BrowserModule,

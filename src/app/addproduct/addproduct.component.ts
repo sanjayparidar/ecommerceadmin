@@ -55,7 +55,7 @@ for (var i =0;i<this.subcategoryarray.length; i++){
   if(this.subcategoryarray[i].categoryid==id){
     console.log('hello')
     this.obj={}
-     this.obj.subcategoryid=this.subcategoryarray[i]._id
+     this.obj._id=this.subcategoryarray[i]._id
      this.obj.subcategory=this.subcategoryarray[i].subcategory
      this.subcategorys.push(this.obj)
   }
@@ -67,6 +67,8 @@ for (var i =0;i<this.subcategoryarray.length; i++){
 
 
   onSubmit(){
+    console.log('hello')
+    console.log(this.userModel)
     
     const fb = new FormData();
     fb.append('image', this.SelectedFile)

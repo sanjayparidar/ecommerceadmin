@@ -28,7 +28,19 @@ public table:any;
     this.obj=objdelete;
   }
   delete(id){
-    this.myservice
+    var index= this.table.findIndex(i => i._id ==id);
+      console.log(index)
+      this.table.splice(index,1)
+        console.log(id)
+         this.myservice.delete_promo(id)
+        .subscribe(res =>  {
+          console.log(res)
+         },
+         error =>{
+           console.log(error)
+          
+         }
+       );    
 
   }
 editproduct(id){

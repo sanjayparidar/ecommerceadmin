@@ -45,14 +45,24 @@
                   </div>
   
                   <div class="form-gp">
-                      <label for="category"><b> Product Category</b></label>
+                      <label for="categoryid"><b> Product Category</b></label>
                       <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
-                      <select class="form-control" required #category="ngModel" name="category" [(ngModel)]="productmodel.category">
+                      <select class="form-control" required #categoryid="ngModel"(change)='category(productmodel.categoryid)' name="categoryid" [(ngModel)]="productmodel.categoryid">
                        <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
                        <!-- <option value="Add Category" selected disabled>Add Category</option> -->
-                       <option *ngFor="let category of categorys" [value]="category" [selected]="category === 1">{{category}} Litter</option>
+                       <option *ngFor="let category of categorys" [value]="category._id">{{category.category_name}}</option>
                    </select>
 
+                  </div>
+
+                  <div class="form-gp">
+                      <label for="subcategoryid"><b> Product subCategory</b></label>
+                      <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
+                      <select class="form-control" required #subcategoryid="ngModel" name="subcategoryid" [(ngModel)]="productmodel.subcategoryid">
+                       <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
+                       <!-- <option value="Add Category" selected disabled>Add Category</option> -->
+                       <option *ngFor="let subcategory of subcategory" [value]="subcategory._id">{{subcategory.subcategory}}</option>
+                   </select>
                   </div>
                   <div class="form-gp">
                       <label for="quantity"><b>Quantity</b></label>

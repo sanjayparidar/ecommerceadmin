@@ -144,5 +144,41 @@ export class MyService {
     return this.http.post('https://polar-basin-67929.herokuapp.com/todaydeal/gettodaydealById',fb)
 
   }
+  update_todaydel(data){
+     return this.http.post('https://polar-basin-67929.herokuapp.com/todaydeal/update',data)
+  }
+  firmworks(){
+    return this.http.get('https://polar-basin-67929.herokuapp.com/firmworks')
+  }
+  addfirmworks(fb){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/firmworks',fb)
+
+  }
+
+  Delete_todaydeal(id){
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/todaydeal/delete',fb)
+
+  }
+  delete_promo(id){
+    
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/couponDelete',fb)
+  }
+  Delete_firmsworks(id){
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/firmworks/delete',fb)
+  }
+  update_subcategorycategory(data){
+    return this.http.post('https://polar-basin-67929.herokuapp.com/subcategory/update',data)
+  }
+  Delete_subcategory(id){
+    const fb=new FormData();
+    fb.append("id",id)
+    return this.http.post('https://polar-basin-67929.herokuapp.com/subcategory/delete',fb)
+  }
 
 }

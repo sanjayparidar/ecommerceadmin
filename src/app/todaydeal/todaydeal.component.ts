@@ -18,7 +18,7 @@ export class TodaydealComponent implements OnInit  {
     ngOnInit() {
       this.myservice.todaydeal_viewproduct("1")
       .subscribe(res=>{
-        console.log(this)
+        console.log(res)
         this.data=res
         this.table=this.data.data
         console.log(this.table)
@@ -35,7 +35,7 @@ export class TodaydealComponent implements OnInit  {
       console.log(index)
       this.table.splice(index,1)
         
-         this.myservice.Deleteproduct(id)
+         this.myservice.Delete_todaydeal(id)
         .subscribe(res =>  {
          },
          error =>{
@@ -135,7 +135,7 @@ for (var i =0;i<this.subcategoryarray.length; i++){
      console.log(this.SelectedFile)
     this.myservice.todaydeal_addproduct(fb)
     .subscribe(res=>{
-        this.router.navigate(['viewproduct'])
+        this.router.navigate(['todaydeal'])
     })
   
   }
@@ -161,13 +161,27 @@ public stocks:any;
 SelectedFile: File = null;
 subcategory:any=[];
 subcategoryarray:any=[];
+categorydata:any;
   constructor(private myservice:MyService,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
   
     this.units=["Add Unit","kg"];
     this.stocks=["Add stock status","In Stock","Out of Stock"]
-  
+    this.myservice.viewsubcategory()
+    .subscribe(res=>{
+      console.log(res,"ssssssssssssssssssssssss")
+      this.subcategory=res
+      this.subcategoryarray=res
+      
+    });
+    this.myservice.viewcategoroy()
+    .subscribe(res=>{
+      console.log(res)
+      this.categorydata=res
+      this.categorys=this.categorydata.data
+
+    })
 
     this.route.params.subscribe( params =>
       
@@ -180,13 +194,7 @@ subcategoryarray:any=[];
        
      })
   )
-  this.myservice.viewsubcategory()
-  .subscribe(res=>{
-    console.log(res,"ssssssssssssssssssssssss")
-    this.subcategory=res
-    this.subcategoryarray=res
-    
-  });
+  
 
  }
 
@@ -210,10 +218,10 @@ subcategoryarray:any=[];
     fb.append('description', this.userModel.description)
 
 
-    this.myservice.updateproduct(this.userModel)
+    this.myservice.update_todaydel(this.userModel)
     .subscribe(res=>{
       console.log
-      this.router.navigate(['/viewproduct']);
+      this.router.navigate(['/todaydeal']);
     })
   }
 

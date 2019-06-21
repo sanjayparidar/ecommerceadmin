@@ -14,21 +14,40 @@ public categorys:any;
 public units :any;
 public stocks:any;
 SelectedFile: File = null;
+subcategory:any=[];
+subcategoryarray:any=[];
+categorydata:any=[];
+subcategorys:any=[];
+obj:any;
   constructor(private myservice:MyService,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-    this.categorys=['Add Category',1,2,5,10,15,20];
+    
     this.units=["Add Unit","kg","litter"];
     this.stocks=["Add stock status","In Stock","Out of Stock"]
   
+    this.myservice.viewsubcategory()
+    .subscribe(res=>{
+      console.log(res,"ssssssssssssssssssssssss")
+      this.subcategory=res
+      this.subcategoryarray=res
+      
+    });
+    this.myservice.viewcategoroy()
+    .subscribe(res=>{
+      console.log(res)
+      this.categorydata=res
+      this.categorys=this.categorydata.data
+
+    })
 
     this.route.params.subscribe( params =>
       
      this.myservice.geteditproductobj(params['id'])
      .subscribe(res=>{
        this.productres=res
-       
-       this.productmodel={id:this.productres.data[0]._id,product_name:this.productres.data[0].product_name,company_name:this.productres.data[0].company_name,quantity:this.productres.data[0].quantity,unit:this.productres.data[0].unit,stock_status:this.productres.data[0].stock_status,price:this.productres.data[0].price, category:this.productres.data[0].category,description:this.productres.data[0].description}
+       console.log(res)
+       this.productmodel={id:this.productres.data[0]._id,product_name:this.productres.data[0].product_name,company_name:this.productres.data[0].company_name,quantity:this.productres.data[0].quantity,unit:this.productres.data[0].unit,stock_status:this.productres.data[0].stock_status,price:this.productres.data[0].price, categoryid:this.productres.data[0].categoryid,subcategoryid:this.productres.data[0].subcategoryid,description:this.productres.data[0].description}
        
      })
   )
@@ -37,6 +56,26 @@ SelectedFile: File = null;
  onFileSelected(event){
   this.SelectedFile = <File>event.target.files[0];
   console.log(this.SelectedFile)
+}
+
+
+category(id){
+  console.log(id)
+  this.subcategorys=[ ]
+  console.log(this.subcategory.length)
+for (var i =0;i<this.subcategoryarray.length; i++){
+
+if(this.subcategoryarray[i].categoryid==id){
+  console.log('hello')
+  this.obj={}
+   this.obj._id=this.subcategoryarray[i]._id
+   this.obj.subcategory=this.subcategoryarray[i].subcategory
+   this.subcategorys.push(this.obj)
+}
+
+}
+  
+   this.subcategory=this.subcategorys
 }
 
   onSubmit(){

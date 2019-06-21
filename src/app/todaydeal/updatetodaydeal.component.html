@@ -60,7 +60,7 @@
                       <select class="form-control" required #subcategoryid="ngModel" name="subcategoryid" [(ngModel)]="userModel.subcategoryid">
                        <!-- <input type="text" required #category="ngModel" class="form-control" name="category" placeholder="category"   [(ngModel)]="userModel.category"> -->
                        <!-- <option value="Add Category" selected disabled>Add Category</option> -->
-                       <option *ngFor="let subcategory of subcategory" [value]="subcategory.subcategoryid" [selected]="subcategory.subcategory===subcategory">{{subcategory.subcategory}}</option>
+                       <option *ngFor="let subcategory of subcategory" [value]="subcategory._id" [selected]="subcategory.subcategory===subcategory">{{subcategory.subcategory}}</option>
                    </select>
                    </div>
                   

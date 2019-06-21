@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SubcategoryComponent implements OnInit {
 table:any;
+obj={_id:'',subcategory:''};
   constructor(private service:MyService,private router:Router) { }
 
   ngOnInit() {
@@ -19,6 +20,27 @@ table:any;
     });
 
   }
+  deleteconfirmation(objdelete){
+    this.obj=objdelete;
+}
+
+delete(id){
+
+var index= this.table.findIndex(i => i._id ==id);
+ console.log(index)
+ this.table.splice(index,1)
+   
+    this.service.Delete_subcategory(id)
+   .subscribe(res =>  {
+    },
+    error =>{
+      console.log(error)
+     
+    }
+  );
+
+}
+
   editproduct(id){
     this.router.navigate(['updatesubcategory',id])
 
@@ -34,6 +56,8 @@ table:any;
 export class UpdatesubcategoryComponent implements OnInit {
 public subcateres:any;
 public userModel:any={};
+categorys:any;
+categoryarray:any;
   constructor(private route:ActivatedRoute,private myservice:MyService,private router:Router) { }
 
   ngOnInit() {
@@ -46,13 +70,19 @@ public userModel:any={};
         this.userModel={id:this.subcateres[0]._id,categoryid:this.subcateres[0].categoryid,subcategory:this.subcateres[0].subcategory}
       })
    )
+   this.myservice.viewcategoroy()
+   .subscribe(res=>{
+     console.log(res)
+     this.categoryarray=res
+     this.categorys=this.categoryarray.data
+   })
   }
   onSubmit(){
     console.log(this.userModel)
-    this.myservice.updatecategory(this.userModel)
+    this.myservice.update_subcategorycategory(this.userModel)
     .subscribe(res=>{
   
-      this.router.navigate(['/viewcategory']);
+      this.router.navigate(['/subcategory']);
     })
   }
   
