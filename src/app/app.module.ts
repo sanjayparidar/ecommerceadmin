@@ -34,6 +34,10 @@ import { SubcategoryComponent, AddsubcategoryComponent, UpdatesubcategoryCompone
 import { TodaydealComponent, AddtodaydealComponent, UpdatetodaydealComponent } from './todaydeal/todaydeal.component';
 import { combineLatest } from 'rxjs';
 import { FirmworksComponent, AddfirmworksComponent } from './firmworks/firmworks.component';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { EmbedVideo } from 'ngx-embed-video';
+
+
 const appRoute:Routes=[
   { path: '', component: LoginComponent},
   { path: 'index', component:IndexComponent,canActivate: [AuthGuard]},
@@ -98,7 +102,10 @@ const appRoute:Routes=[
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxYoutubePlayerModule.forRoot(),
+    EmbedVideo.forRoot()
+    
     
   ],
   providers: [AuthService,AuthGuard],
